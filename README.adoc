@@ -1,0 +1,24 @@
+= Custom Bash extensions
+
+This repo contains several bash customizations for my personal use.
+
+== Motivation (s)
+
+. Make my installation of shells quicker
+. Play a bit with bash
+
+== Installation
+
+. Place the shell in the user home directory (type `cd`).
+
+. Clone the repo with
+
+ git clone https://github.com/abelsromero/bash-extensions.git ".${USER}_ext"
+
+. Add the following lines to `.profile` or `.bashrc`
+
+ source ~/.${USER}_ext/bootstrap.sh
+
+. Restart the shell or run `source .profile` (or `.bashrc`).
+
+If all is fine, you should see the new shell layout.
