@@ -33,6 +33,5 @@ PS1='[\e[91m\u\e[32m@\h \W\e[39m]\e[96m$(__git_ps1)\e[39m\n$ '
 
 ## not persisted extensions (local_env.sh is in .gitignore)
 if [[ -f "${__MY_TOOLS_PATH}/local_env.sh" ]]; then
-  echo "Loading..."
   source ${__MY_TOOLS_PATH}/local_env.sh
 fi
