@@ -15,7 +15,7 @@ This repo contains several bash customizations for my personal use.
 
  git clone https://github.com/abelsromero/bash-extensions.git ".${USER}_ext"
 
-. Add the following lines to `.profile` or `.bashrc`
+. Add the following lines to `.profile`, `.bashrc` or `.zshrc` depending on the settup.
 
  source ~/.${USER}_ext/bootstrap.sh
 
