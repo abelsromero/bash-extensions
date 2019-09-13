@@ -194,7 +194,3 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
   		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     ;;
 esac
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/asalgadr/.sdkman"
-[[ -s "/home/asalgadr/.sdkman/bin/sdkman-init.sh" ]] && source "/home/asalgadr/.sdkman/bin/sdkman-init.sh"
