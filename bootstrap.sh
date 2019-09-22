@@ -11,7 +11,7 @@ __MY_TOOLS_PATH="${HOME}/.${USER}_ext"
 
 alias ls='ls --color=auto'
 alias ll="ls -lah"
-alias du_sort="du -h --max-depth=1 /var/lib | sort -h"
+alias du_sort="du -h --max-depth=1 | sort -h"
 
 ## EXTENSIONS
 
