@@ -57,6 +57,7 @@ alias cp="cp -i"                                                # Confirm before
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
 alias gitu='git add . && git commit && git push'
+alias ll='ls -lah --color'
 
 # Theming section  
 autoload -U compinit colors zcalc
@@ -198,3 +199,20 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
   		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     ;;
 esac
+
+# requires `lf` https://github.com/gokcehan/lf
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}
+
+bindkey -s '^o' 'lfcd\n'
