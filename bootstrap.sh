@@ -15,11 +15,11 @@ alias du_sort="du -h --max-depth=1 | sort -h"
 
 ## EXTENSIONS
 
-if [[ "$SHELL" = "/usr/bin/bash" ]]; then
+if [[ "$SHELL" = "/bin/bash" ]]; then
   source ${__MY_TOOLS_PATH}/.bashrc
 fi
 
-if [[ "$SHELL" = "/usr/bin/zsh" ]]; then
+if [[ "$SHELL" = "/bin/zsh" ]]; then
   source ${__MY_TOOLS_PATH}/.zshrc
 fi
 
