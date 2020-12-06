@@ -1,6 +1,8 @@
 symtax on
 set number
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+set splitbelow splitright
+set hlsearch
 
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
