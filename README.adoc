@@ -35,4 +35,4 @@ By default, any file with '.sh' extension in the 'plugins' folder will be automa
 === Hidden files
 
 Files & folders can be named to avoid accidental commit.
-Anything with prefix 'local' or '_' will be ignored.
+Anything with prefix '_' will be ignored.

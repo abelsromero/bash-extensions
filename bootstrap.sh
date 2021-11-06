@@ -23,10 +23,12 @@ if [[ "$SHELL" = "/bin/zsh" ]]; then
   source ${__MY_TOOLS_PATH}/.zshrc
 fi
 
-## not persisted extensions (local_env.sh is in .gitignore)
-if [[ -f "${__MY_TOOLS_PATH}/local_env.sh" ]]; then
-  source ${__MY_TOOLS_PATH}/local_env.sh
-fi
+## Shared scripts
+[[ -d "${__MY_TOOLS_PATH}/shared" ]] && \
+for f in $(ls ${__MY_TOOLS_PATH}/shared/*.sh)
+do
+ source $f
+done
 
 ## Plugins: place *.sh files to be sources in '/plugins' dir
 [[ -d "${__MY_TOOLS_PATH}/plugins" ]] && \
