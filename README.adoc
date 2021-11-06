@@ -15,13 +15,20 @@ This repo contains several bash customizations for my personal use.
 
  git clone https://github.com/abelsromero/bash-extensions.git ".${USER}_ext"
 
-. Add the following lines to `.profile`, `.bashrc` or `.zshrc` depending on the settup.
+. Add the following lines to `.bashrc`, `.zshrc` or `.profile` depending on the setup.
 
  source ~/.${USER}_ext/bootstrap.sh
 
+. Copy files in `home` folder to your home.
+
 . Correct path to `.gitignore_global` in `.gitconfig`
 
-. Restart the shell or run `source .profile` (or `.bashrc`).
+. Set up your Git username and email.
+
+ git config --global user.name "my.user@email.com"
+ git config --global user.email "Name Surname(s)"
+
+. Close and re-open the shell.
 
 If all is fine, you should see the new shell layout.
 

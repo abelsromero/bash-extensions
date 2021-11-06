@@ -1,6 +1,9 @@
 [user]
-	name = Abel Salgado Romero
-	email = ***@gmail.com
+	name = 
+	email =
+#   signingKey =
+#[commit]
+#   gpgsign = true
 [push]
 	default = matching
 [core]
@@ -8,6 +11,7 @@
 	editor = vim
 	filemode = false
 	excludesfile = ~/.$USER_ext/.gitignore_global
+	autocrlf = input
 [color]
 	ui = true
 [merge]
@@ -36,3 +40,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[pull]
+	ff = only
