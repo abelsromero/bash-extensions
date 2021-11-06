@@ -27,3 +27,10 @@ fi
 if [[ -f "${__MY_TOOLS_PATH}/local_env.sh" ]]; then
   source ${__MY_TOOLS_PATH}/local_env.sh
 fi
+
+## Plugins: place *.sh files to be sources in '/plugins' dir
+[[ -d "${__MY_TOOLS_PATH}/plugins" ]] && \
+for f in $(ls ${__MY_TOOLS_PATH}/plugins/*.sh)
+do
+ source $f
+done
