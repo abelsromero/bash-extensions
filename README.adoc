@@ -5,7 +5,7 @@ This repo contains several bash customizations for my personal use.
 == Motivation (s)
 
 . Make my installation of shells quicker
-. Play a bit with bash
+. Play a bit with Bash
 
 == Installation
 
@@ -24,3 +24,15 @@ This repo contains several bash customizations for my personal use.
 . Restart the shell or run `source .profile` (or `.bashrc`).
 
 If all is fine, you should see the new shell layout.
+
+== Plugins
+
+A _plugin_ is any Bash script locating inside the 'plugins' directory inside the installation.
+By default, any file with '.sh' extension in the 'plugins' folder will be automatically source.
+
+== Tips & tricks
+
+=== Hidden files
+
+Files & folders can be named to avoid accidental commit.
+Anything with prefix 'local' or '_' will be ignored.
