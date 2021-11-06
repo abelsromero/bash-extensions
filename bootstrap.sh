@@ -3,21 +3,13 @@
 __MY_TOOLS_PATH="${HOME}/.${USER}_ext"
 
 ## FIXES
-
 # export LANG=en_US.utf8
 # export LC_COLLATE="C"
 
 ## ALIAS
-
 alias ls='ls --color=auto'
 alias ll="ls -lah"
 alias du_sort="du -h --max-depth=1 | sort -h"
-
-## EXTENSIONS
-
-if [[ "$SHELL" = "/bin/bash" ]]; then
-  source ${__MY_TOOLS_PATH}/.bashrc
-fi
 
 if [[ "$SHELL" = "/bin/zsh" ]]; then
   source ${__MY_TOOLS_PATH}/.zshrc
