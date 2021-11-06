@@ -8,7 +8,7 @@ setopt numericglobsort                                          # Sort filenames
 setopt nobeep                                                   # No beep
 setopt appendhistory                                            # Immediately append history instead of overwriting
 setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
-setopt autocd                                                   # if only directory path is entered, cd there.
+#setopt autocd                                                  # if only directory path is entered, cd there.
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
@@ -19,8 +19,8 @@ zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
-HISTSIZE=1000
-SAVEHIST=500
+HISTSIZE=2000
+SAVEHIST=2000
 
 export EDITOR=/usr/bin/vim
 #export VISUAL=/usr/bin/nano
@@ -52,6 +52,10 @@ bindkey '^[[1;5D' backward-word                                 #
 bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
+
+# Apps shortcuts
+bindkey -s '^[h' 'htop\n'
+bindkey -s '^[e' 'thunar .\n'
 
 ## Alias section 
 alias cp="cp -i"                                                # Confirm before overwriting something
@@ -216,4 +220,21 @@ lfcd () {
     fi
 }
 
-bindkey -s '^o' 'lfcd\n'
+shift-arrow() {
+  ((REGION_ACTIVE)) || zle set-mark-command
+  zle $1
+}
+
+shift-left() shift-arrow backward-char
+shift-right() shift-arrow forward-char
+shift-up() shift-arrow up-line-or-history
+shift-down() shift-arrow down-line-or-history
+zle -N shift-left
+zle -N shift-right
+zle -N shift-up
+zle -N shift-down
+
+bindkey $terminfo[kLFT] shift-left
+bindkey $terminfo[kRIT] shift-right
+bindkey $terminfo[kri] shift-up
+bindkey $terminfo[kind] shift-down
