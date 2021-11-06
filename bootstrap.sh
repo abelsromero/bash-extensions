@@ -11,20 +11,7 @@ alias ls='ls --color=auto'
 alias ll="ls -lah"
 alias du_sort="du -h --max-depth=1 | sort -h"
 
-if [[ "$SHELL" = "/bin/zsh" ]]; then
-  source ${__MY_TOOLS_PATH}/.zshrc
-fi
+[[ "$SHELL" = "/bin/zsh" ]] && \
+  source "${__MY_TOOLS_PATH}/.zshrc" && \
+  for f in $(find "${__MY_TOOLS_PATH}/shared" "${__MY_TOOLS_PATH}/plugins" -type f); do; source $f; done
 
-## Shared scripts
-[[ -d "${__MY_TOOLS_PATH}/shared" ]] && \
-for f in $(ls ${__MY_TOOLS_PATH}/shared/*.sh)
-do
- source $f
-done
-
-## Plugins: place *.sh files to be sources in '/plugins' dir
-[[ -d "${__MY_TOOLS_PATH}/plugins" ]] && \
-for f in $(ls ${__MY_TOOLS_PATH}/plugins/*.sh)
-do
- source $f
-done
