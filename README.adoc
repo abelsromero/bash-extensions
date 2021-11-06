@@ -1,11 +1,25 @@
 = Custom Bash extensions
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:badges:
+:tag: main
+:!toc-title:
+:tip-caption: :bulb:
+:note-caption: :paperclip:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
 
 This repo contains several bash customizations for my personal use.
 
-== Motivation (s)
+WARNING: While I try to keep it general and modular, some tools are very specific to my daily use.
+
+== Motivation(s)
 
 . Make my installation of shells quicker
 . Play a bit with Bash
+. Avoid bloat
 
 == Installation
 
@@ -30,7 +44,7 @@ This repo contains several bash customizations for my personal use.
 
 . Close and re-open the shell.
 
-If all is fine, you should see the new shell layout.
+If all is fine, you should see the new promp layout with '>>>'.
 
 == Plugins
 
