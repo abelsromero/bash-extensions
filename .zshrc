@@ -204,21 +204,6 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
     ;;
 esac
 
-# requires `lf` https://github.com/gokcehan/lf
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
-        fi
-    fi
-}
-
 shift-arrow() {
   ((REGION_ACTIVE)) || zle set-mark-command
   zle $1
