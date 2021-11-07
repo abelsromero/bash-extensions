@@ -35,6 +35,9 @@ WARNING: While I try to keep it general and modular, some tools are very specifi
 
 . Copy files in `home` folder to your home.
 
+WARNING: Do NOT copy '.config' folder if you are not interested apps configuration.
+For example, when running in macos.
+
 . Correct path to `.gitignore_global` in `.gitconfig`
 
 . Set up your Git username and email.
