@@ -90,18 +90,11 @@ label = "%output%"
 interval = 5
 click-left=alacritty -e htop &
 
-#[module/microphone]
-#type = custom/script
-#exec = polybar_microphone.sh
-#label = "%output%"
-#interval = 5
-
-[module/fsinfo]
+[module/microphone]
 type = custom/script
-exec = polybar_fs.sh
+exec = polybar_microphone.sh
 label = "%output%"
 interval = 5
-;format-underline = #089900
 
 [module/xwindow]
 type = internal/xwindow
