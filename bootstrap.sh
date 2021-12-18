@@ -9,6 +9,10 @@ __MY_TOOLS_PATH="${HOME}/.${USER}_ext"
 ## ALIAS
 alias ls='ls --color=auto'
 alias ll="ls -lah"
+alias cp="cp -i"                                                # Confirm before overwriting something
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
+alias gitu='git add . && git commit && git push'
 alias du_sort="du -h --max-depth=1 | sort -h"
 
 [[ "$SHELL" = "/bin/zsh" ]] && \
