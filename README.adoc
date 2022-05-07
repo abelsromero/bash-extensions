@@ -10,10 +10,13 @@ ifdef::env-github[]
 :caution-caption: :fire:
 :warning-caption: :warning:
 endif::[]
+:repo-url: https://github.com/abelsromero/bash-extensions
+:main-branch-url: blob/main
 
 This repo contains several bash customizations for my personal use.
 
-WARNING: While I try to keep it general and modular, some tools are very specific to my daily use.
+WARNING: While I try to keep it general and modular, some tools are specific to my daily use and will not work.
+For example, {repo-url}/{main-branch-url}/scripts/xrandr_setup.sh[screen setup] depends on connection used.
 
 == Motivation(s)
 
