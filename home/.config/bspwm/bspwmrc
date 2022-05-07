@@ -1,11 +1,13 @@
 #!/bin/sh
 
+# disable: VRR on games on X11, no transitions in bspwm
+readonly ENABLE_COMPOSITOR="false"
+
 nitrogen --restore
 xrandr_setup.sh --toggle
-
-xsetroot -cursor_name left_ptr &
 sxhkd &
-picom &
+xsetroot -cursor_name left_ptr &
+[[ "$ENABLE_COMPOSITOR" == "true" ]] && picom &
 polybar_setup.sh
 xfce4-clipman &
 nm-applet &
