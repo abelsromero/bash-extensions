@@ -44,7 +44,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = 
 modules-center = xwindow 
-modules-right = apps bspwm microphone pulseaudio filesystem cpu cpuinfo memory date
+modules-right = apps bspwm monitors microphone pulseaudio filesystem cpu cpuinfo memory date
 
 tray-position = ${env:TRAY_POS} 
 tray-padding = 1
@@ -90,11 +90,18 @@ label = "%output%"
 interval = 5
 click-left=alacritty -e htop &
 
-[module/microphone]
+[module/monitors]
 type = custom/script
-exec = polybar_microphone.sh
+exec = xrandr --listmonitors | head -n 1
 label = "%output%"
-interval = 5
+tail = true
+click-left=xrandr_setup.sh --toggle && polybar_setup.sh &
+
+#[module/microphone]
+#type = custom/script
+#exec = polybar_microphone.sh
+#label = "%output%"
+#interval = 5
 
 [module/xwindow]
 type = internal/xwindow
