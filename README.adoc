@@ -53,6 +53,10 @@ For example, when running in macos.
  git config --global user.name "my.user@email.com"
  git config --global user.email "Name Surname(s)"
 
+. Setup GPG Git signature (`signingKey`).
+// Import https://linuxhint.com/export-import-keys-with-gpg/
+// List `gpg --list-keys` and copy id to .gitconfig
+
 . Close and re-open the shell.
 
 If all is fine, you should see the new promp layout with '>>>'.
