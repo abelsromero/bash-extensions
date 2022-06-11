@@ -1,9 +1,12 @@
 #!/bin/sh
 
-alias k="kubectl"
-alias kctx="kubectx"
-alias kns="kubens"
-source <(kubectl completion zsh)
+if command -v kubectl &> /dev/null
+then
+  alias k="kubectl"
+  alias kctx="kubectx"
+  alias kns="kubens"
+  source <(kubectl completion zsh)
+fi
 
 docker_clean_all() {
 	docker rmi -f $(docker images -a -q)
