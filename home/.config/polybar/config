@@ -94,7 +94,7 @@ click-left=alacritty -e htop &
 type = custom/script
 exec = xrandr --listmonitors | head -n 1
 label = "%output%"
-tail = true
+interval = 60
 click-left=xrandr_setup.sh --toggle && polybar_setup.sh &
 
 #[module/microphone]
