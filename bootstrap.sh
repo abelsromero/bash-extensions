@@ -15,7 +15,7 @@ alias free='free -m'                                            # Show sizes in 
 alias gitu='git add . && git commit && git push'
 alias du_sort="du -h --max-depth=1 | sort -h"
 
-[[ "$SHELL" = "/bin/zsh" ]] && \
+[ "$SHELL" = "/bin/zsh" ] || [ "$SHELL" = "/usr/bin/zsh" ] && \
   source "${__MY_TOOLS_PATH}/.zshrc" && \
   for f in $(find "${__MY_TOOLS_PATH}/shared" "${__MY_TOOLS_PATH}/plugins" -type f); do; source $f; done
 
