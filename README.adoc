@@ -36,7 +36,8 @@ For example, {repo-url}/{main-branch-url}/scripts/xrandr_setup.sh[screen setup] 
 
   export PATH=$PATH:~/."$USER"_ext/scripts
 
-. Add the following lines to `.zshrc` depending on the setup.
+. Add the following lines to `.zshrc`.
+Make use no other shell configurations are enabled, depending on distro, you may need to totally remove the files content.
 
  source ~/.${USER}_ext/bootstrap.sh
 
