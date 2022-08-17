@@ -14,4 +14,4 @@ timestamp=$(date '+%d/%m/%Y,%T')
 # mpstat reports incorrectly always 8x% iddle
 # top -n 1 fails when run from polybar
 # cpu_iddle=$(top -n 1 | grep Cpu | awk '{printf $8}')
-echo "${timestamp},${cpu_temp#*+},${cpu_freq}" >> ~/cpu_mon.log
+[[ "$CPU_LOG" == "true" ]] && echo "${timestamp},${cpu_temp#*+},${cpu_freq}" >> ~/cpu_mon.log
