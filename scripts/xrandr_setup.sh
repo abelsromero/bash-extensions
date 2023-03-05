@@ -2,7 +2,7 @@
 
 setup() {
   [ "$#" -eq 0 ] && freq="120" || freq="$1"
-  xrandr --output DisplayPort-0 --mode 2560x1440 --rate "$freq"
+  xrandr --output DisplayPort-0 --mode 2560x1440 --rate "$freq" --set TearFree on
   xrandr --output HDMI-A-0 --mode 2560x1440 --rate 60 --set TearFree on
   xrandr --output HDMI-A-0 --right-of DisplayPort-0
 }
