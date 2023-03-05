@@ -34,7 +34,7 @@ if [[ "${terminfo[khome]}" != "" ]]; then
   bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
 fi
 bindkey '^[[8~' end-of-line                                     # End key
-bindkey '^[[F' end-of-line                                     # End key
+bindkey '^[[F' end-of-line                                      # End key
 if [[ "${terminfo[kend]}" != "" ]]; then
   bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
 fi
@@ -57,9 +57,9 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 bindkey -s '^[h' 'htop\n'
 bindkey -s '^[e' 'thunar .\n'
 
-# Theming section  
+# Theming section
 autoload -U compinit colors zcalc
-compinit -d
+compinit
 colors
 
 # edit commands in vim
