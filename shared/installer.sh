@@ -2,20 +2,51 @@
 
 # Methods to handle installing/removing scripts from custom path dir 'scripts'
 
-install_script() {
-  [ "$#" -ne 1 ] && echo "Expected arg: script name" && return 1
-  cp "$1" "$__MY_TOOLS_PATH/scripts"
-  chmod 700 "$__MY_TOOLS_PATH/scripts/$1"
+__install_to() {
+  local -r program="$1"
+  local -r target="$2"
+  echo "program: $1"
+  echo "target: $2"
+  cp "$program" "$2"
+  chmod u+x "$2/$program"
 }
 
-uninstall_scripts() {
-  [ "$#" -ne 1 ] && echo "Expected arg: script name" && return 1
+install_script() {
+  [ "$#" -ne 1 ] && echo "Expected 1 arg: script file" && return 1
+  __install_to "$1" "$__MY_TOOLS_PATH/scripts/"
+}
+
+uninstall_script() {
+  [ "$#" -ne 1 ] && echo "Expected 1 arg: script file" && return 1
   rm "$__MY_TOOLS_PATH/scripts/$1"
 }
 
+install_to_path() {
+  [ "$#" -ne 1 ] && echo "Expected 1 arg: binary file" && return 1
+  __install_to "$1" "$HOME/.local/bin/"
+}
+
+uninstall_from_path() {
+  [ "$#" -ne 1 ] && echo "Expected 1 arg: binary file" && return 1
+  rm "$HOME/.local/bin/$1"
+}
+
+__uninstall_completion() {
+  local files
+  if [ "$#" -eq 2 ]; then
+    files="$(find "$1" -name "$2" -exec basename {} \;)"
+  else
+    files="$(find "$1" -exec basename {} \;)"
+  fi
+  COMPREPLY=($(compgen -W "$files" -- "${COMP_WORDS[1]}"))
+}
+
 _uninstall_scripts_completion() {
-  echo "$(find "$__MY_TOOLS_PATH/scripts/" -name '*.sh' -exec basename {} \;)"
-  COMPREPLY=($(compgen -W "$scs" -- "${COMP_WORDS[1]}"))
+  __uninstall_completion "$__MY_TOOLS_PATH/scripts/" "*.sh"
+}
+
+_uninstall_from_path_completion() {
+  __uninstall_completion "$HOME/.local/bin/"
 }
 
 if ! typeset -f foo > /dev/null; then
@@ -40,4 +71,5 @@ if ! typeset -f foo > /dev/null; then
   }
 fi
 
-complete -F _uninstall_scripts_completion uninstall_scripts
+complete -F _uninstall_scripts_completion uninstall_script
+complete -F _uninstall_from_path_completion uninstall_from_path
