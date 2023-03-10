@@ -15,7 +15,14 @@ alias free='free -m'                                            # Show sizes in 
 alias gitu='git add . && git commit && git push'
 
 alias code="codium"
-alias du_sort="du -h --max-depth=1 | sort -h"
+
+du_sort() {
+  # -i: hide errors
+  local -r base="(du -h --max-depth=1 | sort -h)"
+  local suffix
+  [ "$#" -eq 1 ] && [[ "$1" == "-i" ]] && suffix="2>/dev/null" || suffix=""
+  eval "$base $suffix"
+}
 
 [ "$SHELL" = "/bin/zsh" ] || [ "$SHELL" = "/usr/bin/zsh" ] && \
   source "${__MY_TOOLS_PATH}/.zshrc" && \
