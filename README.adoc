@@ -12,6 +12,7 @@ ifdef::env-github[]
 endif::[]
 :repo-url: https://github.com/abelsromero/bash-extensions
 :main-branch-url: blob/main
+:modules-dir: modules
 
 This repo contains several bash customizations for my personal use.
 
@@ -61,10 +62,10 @@ For example, when running in macos.
 
 If all is fine, you should see the new promp layout with '>>>'.
 
-== Plugins
+== Modules
 
-A _plugin_ is any Bash script locating inside the 'plugins' directory inside the installation.
-By default, any file with '.sh' extension in the 'plugins' folder will be automatically source.
+A _{modules-dir}_ is any "Bash compatible" script locating inside the _{modules-dir}_ directory inside the installation.
+By default, any file with '.sh' extension in the folder will be automatically sourced.
 
 == Tips & tricks
 
