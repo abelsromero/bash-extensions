@@ -11,11 +11,7 @@ gh_install_latest_release() {
   local -r os="linux" arch="amd64"
   local -r owner=${1:?"repo owner must be set"}
   local -r repo=${2:?"repo name must be set"}
-
-  local -r assets=$(curl -sL \
-    -H "Accept: application/vnd.github+json" \
-    -H "X-GitHub-Api-Version: 2022-11-28" \
-    "https://api.github.com/repos/$owner/$repo/releases/latest")
+  local -r assets=$(__get_latest_release "$owner/$repo")
 
   if [ "$#" -le 2 ]; then
     echo "Release TAG: $(echo -E "$assets" | jq -r '.tag_name')"
@@ -33,3 +29,30 @@ gh_install_latest_release() {
     fi
   fi
 }
+
+__get_latest_release() {
+  curl -sL \
+      -H "Accept: application/vnd.github+json" \
+      -H "X-GitHub-Api-Version: 2022-11-28" \
+      "https://api.github.com/repos/$1/releases/latest"
+}
+
+__get_artifacts () {
+  echo -E "$(__get_latest_release "$1/$2")" | jq -r '.assets[].name' | grep -v "sha"
+}
+
+_gh_install_latest_release_completion() {
+  local -r current_word="${COMP_WORDS[COMP_CWORD]}"
+
+  local options
+  if [ "$COMP_CWORD" -eq 1 ]; then
+    options="repo_owner"
+  elif [ "$COMP_CWORD" -eq 2 ]; then
+    options="repo_name"
+  elif [ "$COMP_CWORD" -eq 3 ]; then
+    options=$(__get_artifacts "${COMP_WORDS[1]}" "${COMP_WORDS[2]}")
+  fi
+  COMPREPLY=($(compgen -W "$options" -- "$current_word"))
+}
+
+complete -F _gh_install_latest_release_completion gh_install_latest_release
