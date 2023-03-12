@@ -2,7 +2,7 @@
 
 # ignore validation files like shas
 
-# Supports 4 arguments
+# Downloads and installs a GH binary from a gh release (compressed files not supported yet).
 #  1: gh repo owner
 #  2: gh repo name
 #  3: asset name as described in the gh release, if not set, will print available found
@@ -28,6 +28,22 @@ gh_install_latest_release() {
       install_to_path "$temp_dir/$asset_name"
     fi
   fi
+}
+
+# Downloads a GH release file in the current directory.
+#  1: gh repo owner
+#  2: gh repo name
+#  3: asset name as described in the gh release, if not set, will print available found
+#  4: (optional) final name for installation
+gh_download_latest_release() {
+  local -r os="linux" arch="amd64"
+  local -r owner=${1:?"repo owner must be set"}
+  local -r repo=${2:?"repo name must be set"}
+  local -r asset_name=${3:?"asset name must be set"}
+
+  local -r assets=$(__get_latest_release "$owner/$repo")
+  local -r download_url=$(echo -E "$assets" | jq -r ".assets[] | select(.name == \"$asset_name\") | .browser_download_url")
+  curl -sL "$download_url" -O --output-dir "."
 }
 
 __get_latest_release() {
@@ -56,3 +72,4 @@ _gh_install_latest_release_completion() {
 }
 
 complete -F _gh_install_latest_release_completion gh_install_latest_release
+complete -F _gh_install_latest_release_completion gh_download_latest_release
