@@ -18,7 +18,7 @@ then
 
   k_port_forward() {
     local pod_name=$(kubectl get pods --no-headers | grep $1 | awk '{print $1}')
-    local pods_count=$(echo $pod_name | wc -l)
+    local pods_count=$(echo "$pod_name" | wc -l)
     local port=8080
     if [ "$#" -eq 2 ]; then
       port="$2"
