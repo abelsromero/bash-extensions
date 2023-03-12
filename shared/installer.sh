@@ -3,10 +3,15 @@
 # Methods to handle installing/removing scripts from custom path dir 'scripts'
 
 __install_to() {
-  local -r program="$1"
-  local -r target="$2"
+  local -r program="${1##*/}"
+  local -r target_dir="$2"
   cp "$program" "$2"
-  chmod u+x "$2/$program"
+  if [ "$#" -eq 3 ]; then
+    mv "$target_dir/$program" "$target_dir/$3"
+    chmod u+x "$target_dir/$3"
+  else
+    chmod u+x "$target_dir/$program"
+  fi
 }
 
 install_script() {
@@ -19,9 +24,17 @@ uninstall_script() {
   rm "$__MY_TOOLS_PATH/scripts/$1"
 }
 
+# Copies a binary into a PATH available location
+#  1: path of the binary
+#  2: (optional) final name for the binary
 install_to_path() {
-  [ "$#" -ne 1 ] && echo "Expected 1 arg: binary file" && return 1
-  __install_to "$1" "$HOME/.local/bin/"
+  [ "$#" -gt 2 ] && echo "Expected 1 or 2 args: binary_file [final_name]" && return 1
+
+  if [ "$#" -eq 1 ]; then
+    __install_to "$1" "$HOME/.local/bin/"
+  else
+    __install_to "$1" "$HOME/.local/bin/" "$2"
+  fi
 }
 
 uninstall_from_path() {
