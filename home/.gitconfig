@@ -5,7 +5,7 @@
 #[commit]
 #   gpgsign = true
 [push]
-	default = matching
+	default = current
 [core]
 	trustctime = false
 	editor = vim
