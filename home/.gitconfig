@@ -27,6 +27,7 @@
 	co = checkout
 	cl = clone
 	ci = commit
+	pa = pull --all
 	st = status -sb
 	br = branch
 	unstage = reset HEAD --
