@@ -4,12 +4,12 @@
 
 __install_to() {
   local -r program="${1##*/}"
-  local -r target_dir="$2"
-  cp "$program" "$2"
+  local -r target_dir="${2%/}"
   if [ "$#" -eq 3 ]; then
-    mv "$target_dir/$program" "$target_dir/$3"
+    mv "$1" "$target_dir/$3"
     chmod u+x "$target_dir/$3"
   else
+    mv "$1" "$target_dir"
     chmod u+x "$target_dir/$program"
   fi
 }
