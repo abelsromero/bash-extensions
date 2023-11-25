@@ -47,12 +47,14 @@ Make use no other shell configurations are enabled, depending on distro, you may
 WARNING: Do NOT copy '.config' folder if you are not interested apps configuration.
 For example, when running in macos.
 
-. Correct path to `.gitignore_global` in `.gitconfig`
+. Correct path to `.gitignore_global` in `.gitconfig`.
 
 . Set up your Git username and email.
 
  git config --global user.name "my.user@email.com"
  git config --global user.email "Name Surname(s)"
+
+. Set emails in `git_config_email.sh`.
 
 . Setup GPG Git signature (`signingKey`).
 // Import https://linuxhint.com/export-import-keys-with-gpg/
