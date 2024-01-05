@@ -1,0 +1,25 @@
+[colors.normal]
+black = "#000000"
+blue = "#7aa6da"
+cyan = "#70c0ba"
+green = "#66dd00"
+magenta = "#c397d8"
+red = "#d54e53"
+white = "#eaeaea"
+yellow = "#e6c547"
+
+[font]
+size = 13.0
+
+[font.normal]
+family = "monospace"
+
+[selection]
+save_to_clipboard = true
+
+[window]
+opacity = 0.9
+
+[window.dimensions]
+columns = 120
+lines = 30
