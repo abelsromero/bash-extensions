@@ -12,11 +12,11 @@ super + o
 shift + Print
 	xfce4-screenshooter -rc
 Print
-	xfce4-screenshooter -c
+  xfce4-screenshooter -f -s "$HOME/Desktop/Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 #super + v
 #	xfce4-clipman-history
 super + d
-	rofi -modi drun,run -show drun -show-icons -theme slate -m -1 
+	rofi -modi drun,run -show drun -show-icons -theme slate -m -1
 alt + Tab
 	rofi -show window -show-icons -theme glue_pro_blue
 super + g
@@ -31,7 +31,7 @@ super + {t,shift + t,s,f}
 super + r
 	bspc node @/ -E
 super + p
-	clementine --play-pause
+	strawberry --play-pause
 #super + n
 #	xdotool_hidewindow.sh
 

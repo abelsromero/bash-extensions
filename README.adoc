@@ -33,7 +33,7 @@ For example, {repo-url}/{main-branch-url}/scripts/xrandr_setup.sh[screen setup] 
 
  git clone https://github.com/abelsromero/bash-extensions.git ".${USER}_ext"
 
-. (ONLY for https://github.com/polybar/polybar[polybar]) Add 'scripts' folder to path in `.profile`.
+. (ONLY for https://github.com/polybar/polybar[polybar]) Add 'scripts' folder to path in `.profile` or `.zprofile` (depending on your configuration).
 
   export PATH=$PATH:~/."$USER"_ext/scripts
 
